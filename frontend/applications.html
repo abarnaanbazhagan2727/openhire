@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OpenHire Applications Center - Track your career applications or manage candidate hiring pipeline.">
+  <title>Applications - OpenHire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Applications Container -->
+  <main style="padding: 3rem 0;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+        <div>
+          <h1 id="applicationsPageTitle" style="font-size: 1.85rem; margin-bottom: 0.35rem;">Applications</h1>
+          <p id="applicationsPageSubtitle" class="text-secondary">Track live recruitment progress and interview status.</p>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <a href="javascript:void(0)" onclick="window.history.back()" class="btn btn-secondary btn-sm">← Back</a>
+        </div>
+      </div>
+
+      <div id="applicationsViewContainer">
+        <div class="skeleton" style="height: 140px; margin-bottom: 1.5rem;"></div>
+        <div class="skeleton" style="height: 140px;"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Employer Applicant Review Modal Dialog -->
+  <div class="modal-overlay" id="applicantDetailsModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3>Applicant Details & Application Note</h3>
+        <button class="modal-close" id="closeApplicantModalBtn" aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body" id="applicantModalBody">
+        <!-- Populated via applications.js -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="UI.closeModal('applicantDetailsModal')">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/applications.js"></script>
+</body>
+</html>

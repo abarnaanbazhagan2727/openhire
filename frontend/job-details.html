@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed overview of job position, requirements, salary, and instant direct application on OpenHire.">
+  <title>Job Details - OpenHire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="jobs.html" class="nav-link">Find Jobs</a></li>
+          <li><a href="index.html#companies" class="nav-link">Companies</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+
+      <button class="hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Job Details Container -->
+  <main style="padding: 3rem 0;">
+    <div class="container" id="jobDetailsContainer">
+      <div class="skeleton" style="height: 180px; margin-bottom: 2rem;"></div>
+      <div class="skeleton" style="height: 400px;"></div>
+    </div>
+  </main>
+
+  <!-- Application Modal Dialog -->
+  <div class="modal-overlay" id="applicationModal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <h3 id="applyModalJobTitle">Apply for Position</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary);" id="applyModalCompany">Company</p>
+        </div>
+        <button class="modal-close" id="closeApplyModalBtn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <form id="jobApplicationForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="applyFullName">Full Name *</label>
+            <input type="text" id="applyFullName" class="form-input" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="applyEmail">Email Address *</label>
+              <input type="email" id="applyEmail" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="applyPhone">Contact Phone *</label>
+              <input type="tel" id="applyPhone" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="applyResumeUrl">Online Resume / Portfolio Link</label>
+            <input type="url" id="applyResumeUrl" class="form-input" placeholder="https://example.com/resume.pdf">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="applyCoverLetter">Cover Letter / Note to Recruiter</label>
+            <textarea id="applyCoverLetter" class="form-input" rows="4" placeholder="Highlight relevant skills, achievements, and why you are excited about this role..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="cancelApplyBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submitApplyBtn">Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/jobs.js"></script>
+</body>
+</html>

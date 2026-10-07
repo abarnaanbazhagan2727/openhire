@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Modify details and status for your existing job posting on OpenHire.">
+  <title>Edit Job - OpenHire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+    </div>
+  </header>
+
+  <main style="padding: 3rem 0;">
+    <div class="container" style="max-width: 820px;">
+      <div class="card">
+        <div style="margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+          <h1 style="font-size: 1.75rem; margin-bottom: 0.25rem;">Edit Job Posting</h1>
+          <p class="text-secondary">Update role requirements, offered compensation, or mark hiring status.</p>
+        </div>
+
+        <form id="editJobForm">
+          <div class="form-row">
+            <div class="form-group" style="flex: 2;">
+              <label class="form-label" for="editJobTitle">Job Title *</label>
+              <input type="text" id="editJobTitle" class="form-input" required>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label" for="editJobStatus">Hiring Status *</label>
+              <select id="editJobStatus" class="form-input" required>
+                <option value="OPEN">OPEN (Accepting Applications)</option>
+                <option value="FILLED">FILLED (Closed)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="editJobCategory">Domain / Category *</label>
+              <select id="editJobCategory" class="form-input" required>
+                <option value="Software Development">Software Development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Artificial Intelligence">Artificial Intelligence</option>
+                <option value="Cybersecurity">Cybersecurity</option>
+                <option value="Cloud Computing">Cloud Computing</option>
+                <option value="UI/UX Design">UI/UX Design</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Finance">Finance</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="editJobCompany">Company Name *</label>
+              <input type="text" id="editJobCompany" class="form-input" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="editJobLocation">Location *</label>
+              <input type="text" id="editJobLocation" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="editJobWorkMode">Work Mode *</label>
+              <select id="editJobWorkMode" class="form-input" required>
+                <option value="On-site">On-site</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Remote">Remote</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="editJobType">Employment Type *</label>
+              <select id="editJobType" class="form-input" required>
+                <option value="Full Time">Full Time</option>
+                <option value="Part Time">Part Time</option>
+                <option value="Internship">Internship</option>
+                <option value="Contract">Contract</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="editJobExperience">Experience Level *</label>
+              <select id="editJobExperience" class="form-input" required>
+                <option value="Fresher">Fresher / Graduate</option>
+                <option value="1-3 Years">1 - 3 Years</option>
+                <option value="3-5 Years">3 - 5 Years</option>
+                <option value="5+ Years">5+ Years</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="editJobSalaryMin">Minimum Salary (₹ / month)</label>
+              <input type="number" id="editJobSalaryMin" class="form-input" min="0">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="editJobSalaryMax">Maximum Salary (₹ / month)</label>
+              <input type="number" id="editJobSalaryMax" class="form-input" min="0">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="editJobDeadline">Application Deadline *</label>
+              <input type="date" id="editJobDeadline" class="form-input" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="editJobSkills">Required Skills (comma-separated)</label>
+              <input type="text" id="editJobSkills" class="form-input">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editJobDescription">Job Overview & Description *</label>
+            <textarea id="editJobDescription" class="form-input" rows="4" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editJobResponsibilities">Key Responsibilities (one per line)</label>
+            <textarea id="editJobResponsibilities" class="form-input" rows="4"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="editJobRequirements">Candidate Requirements (one per line)</label>
+            <textarea id="editJobRequirements" class="form-input" rows="4"></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+            <a href="employer-dashboard.html" class="btn btn-secondary">Cancel</a>
+            <button type="submit" class="btn btn-primary" id="saveJobSubmitBtn">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const user = API.getUser();
+      if (!user) {
+        window.location.href = 'login.html';
+        return;
+      }
+      if (user.role !== 'employer') {
+        window.location.href = 'seeker-dashboard.html';
+        return;
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const jobId = urlParams.get('id');
+
+      if (!jobId) {
+        UI.showToast('No job ID specified.', 'error');
+        setTimeout(() => (window.location.href = 'employer-dashboard.html'), 1000);
+        return;
+      }
+
+      // Load job data
+      try {
+        const res = await API.getJobById(jobId);
+        const job = res.job;
+
+        document.getElementById('editJobTitle').value = job.title || '';
+        document.getElementById('editJobStatus').value = job.status || 'OPEN';
+        document.getElementById('editJobCategory').value = job.category || 'Software Development';
+        document.getElementById('editJobCompany').value = job.company || '';
+        document.getElementById('editJobLocation').value = job.location || '';
+        document.getElementById('editJobWorkMode').value = job.workMode || 'On-site';
+        document.getElementById('editJobType').value = job.jobType || 'Full Time';
+        document.getElementById('editJobExperience').value = job.experienceLevel || 'Fresher';
+        document.getElementById('editJobSalaryMin').value = job.salaryMin || 0;
+        document.getElementById('editJobSalaryMax').value = job.salaryMax || 0;
+        document.getElementById('editJobDeadline').value = job.applicationDeadline ? job.applicationDeadline.split('T')[0] : '';
+        document.getElementById('editJobSkills').value = (job.skills || []).join(', ');
+        document.getElementById('editJobDescription').value = job.description || '';
+        document.getElementById('editJobResponsibilities').value = (job.responsibilities || []).join('\n');
+        document.getElementById('editJobRequirements').value = (job.requirements || []).join('\n');
+      } catch (err) {
+        UI.showToast(err.message, 'error', 'Error Loading Job');
+      }
+
+      // Form submit handler
+      document.getElementById('editJobForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const submitBtn = document.getElementById('saveJobSubmitBtn');
+
+        const title = document.getElementById('editJobTitle').value.trim();
+        const status = document.getElementById('editJobStatus').value;
+        const category = document.getElementById('editJobCategory').value;
+        const company = document.getElementById('editJobCompany').value.trim();
+        const location = document.getElementById('editJobLocation').value.trim();
+        const workMode = document.getElementById('editJobWorkMode').value;
+        const jobType = document.getElementById('editJobType').value;
+        const experienceLevel = document.getElementById('editJobExperience').value;
+        const salaryMin = document.getElementById('editJobSalaryMin').value;
+        const salaryMax = document.getElementById('editJobSalaryMax').value;
+        const applicationDeadline = document.getElementById('editJobDeadline').value;
+        const skills = document.getElementById('editJobSkills').value;
+        const description = document.getElementById('editJobDescription').value.trim();
+        const responsibilities = document.getElementById('editJobResponsibilities').value;
+        const requirements = document.getElementById('editJobRequirements').value;
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span class="spinner"></span> Saving...`;
+
+        try {
+          await API.updateJob(jobId, {
+            title,
+            status,
+            category,
+            company,
+            location,
+            workMode,
+            jobType,
+            experienceLevel,
+            salaryMin,
+            salaryMax,
+            applicationDeadline,
+            skills,
+            description,
+            responsibilities,
+            requirements
+          });
+
+          UI.showToast('Job posting updated successfully!', 'success', 'Saved');
+          setTimeout(() => {
+            window.location.href = 'employer-dashboard.html';
+          }, 800);
+        } catch (err) {
+          UI.showToast(err.message, 'error', 'Update Failed');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Save Changes';
+        }
+      };
+    });
+  </script>
+</body>
+</html>

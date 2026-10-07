@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a new OpenHire account as a Job Seeker or Employer.">
+  <title>Create Account - OpenHire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Register Form View -->
+  <main class="auth-page">
+    <div class="auth-card" style="max-width: 580px;">
+      <div class="auth-header">
+        <h1>Join OpenHire</h1>
+        <p>Connect talent with opportunity</p>
+      </div>
+
+      <!-- Role Selector Switch -->
+      <div class="role-toggle-group">
+        <button type="button" class="role-toggle-btn active" id="roleSeekerBtn">
+          <span>🎓</span> Job Seeker
+        </button>
+        <button type="button" class="role-toggle-btn" id="roleEmployerBtn">
+          <span>🏢</span> Employer / Recruiter
+        </button>
+      </div>
+
+      <form id="registerForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="regName">Full Name *</label>
+            <input type="text" id="regName" class="form-input" placeholder="e.g. Alex Rivera" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regEmail">Email Address *</label>
+            <input type="email" id="regEmail" class="form-input" placeholder="alex@example.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="regPhone">Phone Number</label>
+            <input type="tel" id="regPhone" class="form-input" placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regLocation">Location / City</label>
+            <input type="text" id="regLocation" class="form-input" placeholder="e.g. Bangalore, India">
+          </div>
+        </div>
+
+        <!-- Employer-only Fields -->
+        <div id="employerFields" style="display: none;">
+          <div class="form-group">
+            <label class="form-label" for="regCompanyName">Company Name *</label>
+            <input type="text" id="regCompanyName" class="form-input" placeholder="e.g. TechNova Solutions">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="regCompanyWebsite">Website URL</label>
+              <input type="url" id="regCompanyWebsite" class="form-input" placeholder="https://example.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="regCompanyDescription">Brief Description</label>
+              <input type="text" id="regCompanyDescription" class="form-input" placeholder="e.g. Cloud software studio">
+            </div>
+          </div>
+        </div>
+
+        <!-- Seeker-only Fields -->
+        <div id="seekerFields">
+          <!-- Shown by default -->
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="registerPassword">Password *</label>
+            <div class="form-input-wrapper">
+              <input type="password" id="registerPassword" class="form-input" placeholder="Min. 8 characters" required autocomplete="new-password">
+              <button type="button" class="input-icon-btn toggle-password-btn" aria-label="Toggle password visibility">👁️</button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="regConfirmPassword">Confirm Password *</label>
+            <div class="form-input-wrapper">
+              <input type="password" id="regConfirmPassword" class="form-input" placeholder="Re-enter password" required autocomplete="new-password">
+              <button type="button" class="input-icon-btn toggle-password-btn" aria-label="Toggle password visibility">👁️</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Password Strength Meter -->
+        <div class="password-strength-container" style="margin-bottom: 1.5rem;">
+          <div class="strength-meter-bar">
+            <div class="strength-meter-fill" id="strengthFill"></div>
+          </div>
+          <div class="strength-rules">
+            <span class="strength-rule" id="ruleLength">8+ characters</span>
+            <span class="strength-rule" id="ruleUpper">One uppercase</span>
+            <span class="strength-rule" id="ruleLower">One lowercase</span>
+            <span class="strength-rule" id="ruleNumber">One number</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem;" id="regSubmitBtn">
+          Create Account
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Sign in here</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

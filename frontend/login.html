@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to your OpenHire account to explore jobs or manage candidate applications.">
+  <title>Login - OpenHire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Login Form View -->
+  <main class="auth-page">
+    <div class="auth-card">
+      <div class="auth-header">
+        <h1>Welcome Back</h1>
+        <p>Sign in to continue to your OpenHire account</p>
+      </div>
+
+      <form id="loginForm">
+        <div class="form-group">
+          <label class="form-label" for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" class="form-input" placeholder="name@example.com" required autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label class="form-label" for="loginPassword">Password</label>
+            <a href="#" class="forgot-link" onclick="UI.showToast('Please use demo accounts or re-register for local academic demonstration.', 'info', 'Forgot Password'); return false;">Forgot password?</a>
+          </div>
+          <div class="form-input-wrapper">
+            <input type="password" id="loginPassword" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+            <button type="button" class="input-icon-btn toggle-password-btn" aria-label="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+
+        <div class="form-checkbox-wrapper">
+          <label class="form-checkbox">
+            <input type="checkbox" id="rememberMe" checked>
+            <span>Remember me on this device</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.8rem;" id="loginSubmitBtn">
+          Login
+        </button>
+      </form>
+
+      <div class="auth-divider">
+        <span>OR DEMO ACCESS</span>
+      </div>
+
+      <!-- Quick Demo Login for Faculty / Jury Review -->
+      <div class="demo-login-box">
+        <p><strong>Faculty & Jury Quick Demo Mode</strong><br>One-click login with pre-populated demo data:</p>
+        <div class="demo-buttons">
+          <button type="button" class="btn btn-secondary btn-sm" id="demoSeekerBtn" style="flex: 1;">
+            👤 Job Seeker (Alex)
+          </button>
+          <button type="button" class="btn btn-secondary btn-sm" id="demoEmployerBtn" style="flex: 1;">
+            🏢 Employer (TechNova)
+          </button>
+        </div>
+      </div>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Create one here</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Job Seeker Dashboard - Track applications, recommendations, and saved positions.">
+  <title>Seeker Dashboard - OpenHire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Main Layout -->
+  <div class="dashboard-layout" id="seekerDashboardView">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="seeker-dashboard.html" class="sidebar-link active">
+              <span>📊</span> Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="jobs.html" class="sidebar-link">
+              <span>🔍</span> Find Jobs
+            </a>
+          </li>
+          <li>
+            <a href="applications.html" class="sidebar-link">
+              <span>📄</span> My Applications
+            </a>
+          </li>
+          <li>
+            <a href="#saved" class="sidebar-link" onclick="document.getElementById('seekerSavedJobsContainer').scrollIntoView({behavior: 'smooth'}); return false;">
+              <span>♥</span> Saved Jobs
+            </a>
+          </li>
+          <li>
+            <a href="profile.html" class="sidebar-link">
+              <span>👤</span> Profile
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="sidebar-link" onclick="UI.showToast('Account preferences are configured directly on your profile.', 'info')">
+              <span>⚙️</span> Settings
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="sidebar-link" onclick="UI.handleLogout()" style="color: var(--danger);">
+              <span>🚪</span> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">AR</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name" id="seekerSidebarName">Alex Rivera</div>
+          <div class="sidebar-user-role">Job Seeker</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Area -->
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div>
+          <h1 id="seekerGreeting">Good morning 👋</h1>
+          <p>Here is the latest progress on your active job applications and career metrics.</p>
+        </div>
+        <a href="jobs.html" class="btn btn-primary">Find More Jobs</a>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-info">
+            <p>Applications</p>
+            <h3 id="statTotalApps">0</h3>
+          </div>
+          <div class="stat-icon primary">📄</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <p>Shortlisted</p>
+            <h3 id="statShortlisted">0</h3>
+          </div>
+          <div class="stat-icon warning">⭐</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <p>Interviews</p>
+            <h3 id="statInterviews">0</h3>
+          </div>
+          <div class="stat-icon secondary">💬</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <p>Job Offers</p>
+            <h3 id="statOffers">0</h3>
+          </div>
+          <div class="stat-icon success">🎉</div>
+        </div>
+      </div>
+
+      <!-- Profile Completion Card -->
+      <div class="profile-progress-card">
+        <div class="profile-progress-header">
+          <h4>Profile Completion</h4>
+          <span class="profile-progress-percent" id="profilePercentText">0%</span>
+        </div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="profileProgressBar" style="width: 0%;"></div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem; font-size: 0.88rem;">
+          <span class="text-secondary">Complete your profile to increase your chances with top employers.</span>
+          <a href="profile.html" class="btn btn-outline btn-sm">Complete Profile</a>
+        </div>
+      </div>
+
+      <!-- Recommended Jobs Section -->
+      <div style="margin-bottom: 2.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h3>Recommended for You</h3>
+          <a href="jobs.html" class="text-muted" style="font-size: 0.9rem;">View All Recommendations &rarr;</a>
+        </div>
+        <div id="seekerRecommendedContainer">
+          <div class="skeleton" style="height: 100px; margin-bottom: 1rem;"></div>
+          <div class="skeleton" style="height: 100px;"></div>
+        </div>
+      </div>
+
+      <!-- Recent Applications Section -->
+      <div style="margin-bottom: 2.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h3>Recent Applications</h3>
+          <a href="applications.html" class="btn btn-secondary btn-sm">View All Applications</a>
+        </div>
+        <div id="seekerRecentAppsContainer">
+          <div class="skeleton" style="height: 160px;"></div>
+        </div>
+      </div>
+
+      <!-- Saved Bookmarks Section -->
+      <div id="saved" style="margin-bottom: 2.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h3>Saved Jobs</h3>
+        </div>
+        <div id="seekerSavedJobsContainer">
+          <div class="skeleton" style="height: 80px;"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

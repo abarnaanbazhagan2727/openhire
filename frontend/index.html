@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OpenHire - Connect Talent. Discover Opportunities. A modern open-source platform for career discovery and talent hiring.">
+  <title>OpenHire - Connect Talent. Discover Opportunities.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brandLogo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="jobs.html" class="nav-link">Find Jobs</a></li>
+          <li><a href="#categories" class="nav-link">Categories</a></li>
+          <li><a href="#companies" class="nav-link">Companies</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+
+      <button class="hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero-section" style="padding: 4.5rem 0 3.5rem; text-align: center; position: relative; overflow: hidden;">
+      <div class="container">
+        <div style="max-width: 820px; margin: 0 auto;">
+          <div style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 1rem; background: var(--primary-light); color: var(--primary); border-radius: var(--radius-full); font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem;">
+            <span>🚀</span> Over 10,000+ open career paths waiting for you
+          </div>
+
+          <h1 style="margin-bottom: 1.25rem;">
+            Find the opportunity that moves your career forward.
+          </h1>
+
+          <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2.5rem; line-height: 1.6;">
+            Discover jobs, connect with employers, and take the next step toward your dream career.
+          </p>
+
+          <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap;">
+            <a href="jobs.html" class="btn btn-primary btn-lg" id="exploreJobsHeroBtn">Explore Jobs</a>
+            <a href="post-job.html" class="btn btn-secondary btn-lg" id="postJobHeroBtn">Post a Job</a>
+          </div>
+
+          <!-- Hero Search Box -->
+          <div class="card hero-search-box" style="padding: 1rem; display: flex; gap: 0.75rem; box-shadow: var(--shadow-xl); position: relative; margin-bottom: 3rem; text-align: left;">
+            <div style="flex: 2; position: relative;">
+              <input type="text" id="heroSearchInput" class="form-input" placeholder="Search job title, skills or company..." autocomplete="off">
+              <div id="searchSuggestionsBox" style="position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); z-index: 50; display: none;"></div>
+            </div>
+            <div style="flex: 1.2;">
+              <input type="text" id="heroLocationInput" class="form-input" placeholder="City or location...">
+            </div>
+            <button class="btn btn-primary" id="heroSearchSubmitBtn" style="padding: 0.75rem 1.5rem;">
+              Search Jobs
+            </button>
+          </div>
+
+          <!-- Floating Hero Stats -->
+          <div class="stats-grid" style="margin-top: 2rem;">
+            <div class="stat-card">
+              <div class="stat-info">
+                <p>Curated Opportunities</p>
+                <h3>10K+</h3>
+              </div>
+              <div class="stat-icon primary">💼</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-info">
+                <p>Verified Companies</p>
+                <h3>5K+</h3>
+              </div>
+              <div class="stat-icon secondary">🏢</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-info">
+                <p>Talented Candidates</p>
+                <h3>25K+</h3>
+              </div>
+              <div class="stat-icon warning">🎓</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-info">
+                <p>Hiring Satisfaction</p>
+                <h3>95%</h3>
+              </div>
+              <div class="stat-icon success">⭐</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof / Trusted Companies -->
+    <section id="companies" style="padding: 3rem 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); background: var(--bg-card);">
+      <div class="container text-center">
+        <p style="text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 1.75rem;">
+          Trusted by professionals and growing teams
+        </p>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 3rem; flex-wrap: wrap;">
+          <div style="font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-secondary);">TechNova</div>
+          <div style="font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-secondary);">CloudWorks</div>
+          <div style="font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-secondary);">DataSphere</div>
+          <div style="font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-secondary);">Innovent</div>
+          <div style="font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-secondary);">NextGen Labs</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" style="padding: 5rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 3.5rem;">
+          <h2 style="margin-bottom: 0.75rem;">Explore by Career Domain</h2>
+          <p class="text-secondary">Explore thousands of open roles categorized by industry demand and future tech stacks.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          <a href="jobs.html?category=Software+Development" class="card category-card" style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="font-size: 2rem; background: var(--primary-light); width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">💻</div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.2rem;">Software Development</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">450+ Available Jobs</p>
+            </div>
+          </a>
+
+          <a href="jobs.html?category=Data+Science" class="card category-card" style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="font-size: 2rem; background: var(--status-applied-bg); width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">📊</div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.2rem;">Data Science</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">190+ Available Jobs</p>
+            </div>
+          </a>
+
+          <a href="jobs.html?category=Artificial+Intelligence" class="card category-card" style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="font-size: 2rem; background: var(--status-shortlisted-bg); width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">🤖</div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.2rem;">Artificial Intelligence</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">280+ Available Jobs</p>
+            </div>
+          </a>
+
+          <a href="jobs.html?category=Cybersecurity" class="card category-card" style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="font-size: 2rem; background: var(--status-rejected-bg); width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">🛡️</div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.2rem;">Cybersecurity</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">140+ Available Jobs</p>
+            </div>
+          </a>
+
+          <a href="jobs.html?category=Cloud+Computing" class="card category-card" style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="font-size: 2rem; background: var(--status-review-bg); width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">☁️</div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.2rem;">Cloud Computing</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">210+ Available Jobs</p>
+            </div>
+          </a>
+
+          <a href="jobs.html?category=UI%2FUX+Design" class="card category-card" style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="font-size: 2rem; background: var(--status-interview-bg); width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">🎨</div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.2rem;">UI/UX Design</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">160+ Available Jobs</p>
+            </div>
+          </a>
+
+          <a href="jobs.html?category=Marketing" class="card category-card" style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="font-size: 2rem; background: var(--status-open-bg); width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">📈</div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.2rem;">Marketing</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">115+ Available Jobs</p>
+            </div>
+          </a>
+
+          <a href="jobs.html?category=Finance" class="card category-card" style="display: flex; align-items: center; gap: 1.25rem;">
+            <div style="font-size: 2rem; background: var(--status-review-bg); width: 56px; height: 56px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">💰</div>
+            <div>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.2rem;">Finance</h3>
+              <p style="font-size: 0.85rem; color: var(--text-muted);">95+ Available Jobs</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Jobs Section -->
+    <section style="padding: 5rem 0; background: var(--bg-card); border-top: 1px solid var(--border-color);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;">
+          <div>
+            <h2 style="margin-bottom: 0.5rem;">Featured Opportunities</h2>
+            <p class="text-secondary">Hand-picked openings from innovative technology companies.</p>
+          </div>
+          <a href="jobs.html" class="btn btn-secondary">View All Jobs &rarr;</a>
+        </div>
+
+        <div id="homeFeaturedJobsContainer">
+          <!-- Populated dynamically via jobs.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section / Value Proposition -->
+    <section id="about" style="padding: 5rem 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 3.5rem;">
+          <h2 style="margin-bottom: 0.75rem;">Why OpenHire?</h2>
+          <p class="text-secondary">Built to give early-career talent and growing teams an unfair advantage.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div class="card" style="padding: 2rem;">
+            <div style="font-size: 2.2rem; margin-bottom: 1rem;">⚡</div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">One-Click Direct Apply</h3>
+            <p class="text-secondary" style="font-size: 0.95rem; line-height: 1.6;">
+              No endless questionnaires or third-party redirects. Apply directly with your OpenHire profile and track status in real-time.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 2rem;">
+            <div style="font-size: 2.2rem; margin-bottom: 1rem;">🎯</div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Transparent Tracking</h3>
+            <p class="text-secondary" style="font-size: 0.95rem; line-height: 1.6;">
+              Know exactly where you stand with a 5-stage live status tracker. Never get ghosted after an interview again.
+            </p>
+          </div>
+
+          <div class="card" style="padding: 2rem;">
+            <div style="font-size: 2.2rem; margin-bottom: 1rem;">🛡️</div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Verified Employers</h3>
+            <p class="text-secondary" style="font-size: 0.95rem; line-height: 1.6;">
+              Every job posting is published by verified corporate employers with authentic salaries and clear expectations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-icon">OH</div>
+            <span>OpenHire</span>
+          </div>
+          <p>Connecting talent with opportunity. The open-source career platform for students, developers, and modern recruiters.</p>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="jobs.html">Find Jobs</a></li>
+            <li><a href="post-job.html">Post a Job</a></li>
+            <li><a href="#companies">Companies</a></li>
+            <li><a href="jobs.html?jobType=Internship">Internships</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#about">Contact</a></li>
+            <li><a href="jobs.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-title">Resources</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Help Center</a></li>
+            <li><a href="index.html">Privacy Policy</a></li>
+            <li><a href="index.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 OpenHire. All rights reserved.</div>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="GitHub">🐙</a>
+          <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+          <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/jobs.js"></script>
+  <script>
+    // Hero search handler
+    document.getElementById('heroSearchSubmitBtn')?.addEventListener('click', () => {
+      const search = document.getElementById('heroSearchInput')?.value.trim();
+      const location = document.getElementById('heroLocationInput')?.value.trim();
+      const params = new URLSearchParams();
+      if (search) params.append('search', search);
+      if (location) params.append('location', location);
+      window.location.href = `jobs.html?${params.toString()}`;
+    });
+  </script>
+</body>
+</html>

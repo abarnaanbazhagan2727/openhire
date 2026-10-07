@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Employer Dashboard - Manage active job postings, monitor applicants, and track recruitment metrics.">
+  <title>Employer Dashboard - OpenHire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Main Layout -->
+  <div class="dashboard-layout" id="employerDashboardView">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar">
+      <div>
+        <ul class="sidebar-menu">
+          <li>
+            <a href="employer-dashboard.html" class="sidebar-link active">
+              <span>📊</span> Dashboard
+            </a>
+          </li>
+          <li>
+            <a href="post-job.html" class="sidebar-link">
+              <span>➕</span> Post a Job
+            </a>
+          </li>
+          <li>
+            <a href="#myJobs" class="sidebar-link" onclick="document.getElementById('myJobs').scrollIntoView({behavior: 'smooth'}); return false;">
+              <span>💼</span> My Jobs
+            </a>
+          </li>
+          <li>
+            <a href="applications.html" class="sidebar-link">
+              <span>👥</span> Applications
+            </a>
+          </li>
+          <li>
+            <a href="profile.html" class="sidebar-link">
+              <span>🏢</span> Company Profile
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="sidebar-link" onclick="UI.showToast('Company profile settings saved automatically.', 'info')">
+              <span>⚙️</span> Settings
+            </a>
+          </li>
+          <li>
+            <a href="javascript:void(0)" class="sidebar-link" onclick="UI.handleLogout()" style="color: var(--danger);">
+              <span>🚪</span> Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-user">
+        <div class="sidebar-user-avatar">TN</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name" id="employerSidebarName">TechNova</div>
+          <div class="sidebar-user-role">Employer</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-main">
+      <div class="dashboard-header">
+        <div>
+          <h1 id="employerGreeting">Welcome back 🏢</h1>
+          <p>Real-time hiring metrics, active job postings, and applicant tracking pipeline.</p>
+        </div>
+        <a href="post-job.html" class="btn btn-primary">➕ Post a New Job</a>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-info">
+            <p>Active Jobs</p>
+            <h3 id="statActiveJobs">0</h3>
+          </div>
+          <div class="stat-icon primary">💼</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <p>Total Applicants</p>
+            <h3 id="statTotalApplicants">0</h3>
+          </div>
+          <div class="stat-icon secondary">👥</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <p>Shortlisted</p>
+            <h3 id="statEmployerShortlisted">0</h3>
+          </div>
+          <div class="stat-icon warning">⭐</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-info">
+            <p>Jobs Filled</p>
+            <h3 id="statJobsFilled">0</h3>
+          </div>
+          <div class="stat-icon success">🏆</div>
+        </div>
+      </div>
+
+      <!-- Weekly Analytics Card -->
+      <div class="analytics-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+          <h4>Applications Received This Week</h4>
+          <span class="text-muted" style="font-size: 0.85rem;">Last 7 Days</span>
+        </div>
+        <div class="chart-bars-container" id="weeklyAnalyticsChart">
+          <div class="skeleton" style="height: 100%; width: 100%;"></div>
+        </div>
+      </div>
+
+      <!-- Employer Jobs Management Section -->
+      <div id="myJobs" style="margin-bottom: 2.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h3>My Active Job Postings</h3>
+          <a href="post-job.html" class="btn btn-secondary btn-sm">Create Posting</a>
+        </div>
+        <div id="employerJobsTableContainer">
+          <div class="skeleton" style="height: 180px;"></div>
+        </div>
+      </div>
+
+      <!-- Recent Applicants Section -->
+      <div style="margin-bottom: 2.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+          <h3>Recent Applicants</h3>
+          <a href="applications.html" class="btn btn-secondary btn-sm">Manage All Candidates</a>
+        </div>
+        <div id="employerRecentApplicantsContainer">
+          <div class="skeleton" style="height: 160px;"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Delete Confirmation Modal Dialog -->
+  <div class="modal-overlay" id="deleteConfirmModal">
+    <div class="modal-container" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3 style="color: var(--danger);">Delete Job Posting</h3>
+        <button class="modal-close" onclick="UI.closeModal('deleteConfirmModal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--text-secondary); line-height: 1.6;">
+          Are you sure you want to permanently delete this job listing? All associated candidate applications and bookmarks will be removed. This action cannot be undone.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelDeleteBtn" onclick="UI.closeModal('deleteConfirmModal')">Cancel</button>
+        <button class="btn btn-danger" id="confirmDeleteBtn">Delete Job</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

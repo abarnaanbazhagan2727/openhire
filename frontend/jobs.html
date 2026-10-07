@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore thousands of curated tech, data, and design jobs on OpenHire.">
+  <title>Find Jobs - OpenHire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="jobs.html" class="nav-link active">Find Jobs</a></li>
+          <li><a href="index.html#companies" class="nav-link">Companies</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+
+      <button class="hamburger" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Jobs Content -->
+  <main style="padding: 2.5rem 0;">
+    <div class="container">
+      <!-- Search Banner -->
+      <div class="card" style="margin-bottom: 2rem; padding: 1.25rem;">
+        <form id="jobsSearchForm" onsubmit="event.preventDefault(); document.getElementById('applyFiltersSubmitBtn').click();" style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <div style="flex: 2; min-width: 240px; position: relative;">
+            <input type="text" id="filterSearch" class="form-input" placeholder="Search job title, skills, or company..." autocomplete="off">
+            <div id="searchSuggestionsBox" style="position: absolute; top: calc(100% + 4px); left: 0; right: 0; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); z-index: 50; display: none;"></div>
+          </div>
+          <div style="flex: 1.2; min-width: 180px;">
+            <input type="text" id="filterLocation" class="form-input" placeholder="City or location...">
+          </div>
+          <button type="submit" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">
+            Search Jobs
+          </button>
+        </form>
+      </div>
+
+      <!-- Main Layout: Filters Sidebar + Jobs Stream -->
+      <div style="display: grid; grid-template-columns: 280px 1fr; gap: 2rem;" class="jobs-layout-grid">
+        <!-- Sidebar Filters -->
+        <aside>
+          <div class="card" style="position: sticky; top: 5.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+              <h3 style="font-size: 1.15rem;">Filter Jobs</h3>
+              <button type="button" class="btn btn-secondary btn-sm" id="clearFiltersBtn">Reset</button>
+            </div>
+
+            <form id="jobFiltersForm">
+              <!-- Category -->
+              <div class="form-group">
+                <label class="form-label" for="filterCategory">Domain / Category</label>
+                <select id="filterCategory" class="form-input">
+                  <option value="All">All Categories</option>
+                  <option value="Software Development">Software Development</option>
+                  <option value="Data Science">Data Science</option>
+                  <option value="Artificial Intelligence">Artificial Intelligence</option>
+                  <option value="Cybersecurity">Cybersecurity</option>
+                  <option value="Cloud Computing">Cloud Computing</option>
+                  <option value="UI/UX Design">UI/UX Design</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Finance">Finance</option>
+                </select>
+              </div>
+
+              <!-- Job Type -->
+              <div class="form-group">
+                <label class="form-label" for="filterJobType">Employment Type</label>
+                <select id="filterJobType" class="form-input">
+                  <option value="All">All Types</option>
+                  <option value="Full Time">Full Time</option>
+                  <option value="Part Time">Part Time</option>
+                  <option value="Internship">Internship</option>
+                  <option value="Contract">Contract</option>
+                </select>
+              </div>
+
+              <!-- Work Mode -->
+              <div class="form-group">
+                <label class="form-label" for="filterWorkMode">Work Mode</label>
+                <select id="filterWorkMode" class="form-input">
+                  <option value="All">All Modes</option>
+                  <option value="Remote">Remote</option>
+                  <option value="Hybrid">Hybrid</option>
+                  <option value="On-site">On-site</option>
+                </select>
+              </div>
+
+              <!-- Experience Level -->
+              <div class="form-group">
+                <label class="form-label" for="filterExperience">Experience Level</label>
+                <select id="filterExperience" class="form-input">
+                  <option value="All">Any Experience</option>
+                  <option value="Fresher">Fresher / Graduate</option>
+                  <option value="1-3 Years">1 - 3 Years</option>
+                  <option value="3-5 Years">3 - 5 Years</option>
+                  <option value="5+ Years">5+ Years</option>
+                </select>
+              </div>
+
+              <!-- Date Posted -->
+              <div class="form-group">
+                <label class="form-label" for="filterDatePosted">Date Posted</label>
+                <select id="filterDatePosted" class="form-input">
+                  <option value="Anytime">Anytime</option>
+                  <option value="Today">Today</option>
+                  <option value="Last 3 Days">Last 3 Days</option>
+                  <option value="Last Week">Last Week</option>
+                  <option value="Last Month">Last Month</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="applyFiltersSubmitBtn" style="width: 100%; margin-top: 1rem;">
+                Apply Filters
+              </button>
+            </form>
+          </div>
+        </aside>
+
+        <!-- Jobs Listing Column -->
+        <section>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <div id="jobsFoundCount" style="font-weight: 700; font-size: 1.1rem; color: var(--text-secondary);">
+              Loading opportunities...
+            </div>
+          </div>
+
+          <div id="jobsListingContainer">
+            <!-- Populated via jobs.js -->
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/jobs.js"></script>
+</body>
+</html>

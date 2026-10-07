@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View and update your OpenHire professional profile and credentials.">
+  <title>Profile - OpenHire</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">OH</div>
+        <span>OpenHire</span>
+      </a>
+
+      <div class="nav-actions">
+        <!-- Injected via ui.js -->
+      </div>
+    </div>
+  </header>
+
+  <!-- Profile Content -->
+  <main style="padding: 3rem 0;">
+    <div class="container" style="max-width: 820px;">
+      <!-- Profile Header Card -->
+      <div class="card" style="margin-bottom: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 1.25rem;">
+            <div id="profileAvatarLetter" style="width: 64px; height: 64px; border-radius: var(--radius-full); background: var(--accent-gradient); color: #fff; font-size: 1.75rem; font-weight: 800; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+              U
+            </div>
+            <div>
+              <h1 id="profileHeaderName" style="font-size: 1.6rem; margin-bottom: 0.2rem;">User Profile</h1>
+              <span id="profileHeaderRole" class="badge badge-open">Role</span>
+            </div>
+          </div>
+          <div>
+            <div style="text-align: right; margin-bottom: 0.35rem;">
+              <span style="font-size: 0.85rem; color: var(--text-muted); font-weight: 600;">PROFILE COMPLETION</span>
+              <span id="profileCompletionScore" style="font-weight: 800; color: var(--primary); font-size: 1.1rem; margin-left: 0.5rem;">0%</span>
+            </div>
+            <div class="progress-bar" style="width: 180px;">
+              <div class="progress-fill" id="profileCompletionBar" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Edit Form -->
+      <div class="card">
+        <h2 style="font-size: 1.35rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem;">
+          Edit Profile Information
+        </h2>
+
+        <form id="profileForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="profName">Full Name *</label>
+              <input type="text" id="profName" class="form-input" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profEmail">Email Address</label>
+              <input type="email" id="profEmail" class="form-input" disabled style="opacity: 0.7; cursor: not-allowed;">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="profPhone">Phone Number</label>
+              <input type="tel" id="profPhone" class="form-input" placeholder="+91 98765 43210">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="profLocation">Location / City</label>
+              <input type="text" id="profLocation" class="form-input" placeholder="e.g. Bangalore, India">
+            </div>
+          </div>
+
+          <!-- Seeker Profile Specific Fields -->
+          <div id="seekerProfileSection" style="display: none;">
+            <div class="form-group">
+              <label class="form-label" for="profSkills">Skills (comma-separated)</label>
+              <input type="text" id="profSkills" class="form-input" placeholder="JavaScript, Node.js, Python, MongoDB, React, CSS">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">These skills are used to power your personalized job recommendations.</span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="profEducation">Education</label>
+                <input type="text" id="profEducation" class="form-input" placeholder="e.g. B.Tech Computer Science, 2024">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="profExperience">Experience Summary</label>
+                <input type="text" id="profExperience" class="form-input" placeholder="e.g. 2 years as Full-Stack Engineer">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="profResumeUrl">Resume PDF URL</label>
+              <input type="url" id="profResumeUrl" class="form-input" placeholder="https://example.com/resume.pdf">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="profPortfolio">Portfolio Website</label>
+                <input type="url" id="profPortfolio" class="form-input" placeholder="https://myportfolio.dev">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="profLinkedin">LinkedIn Profile</label>
+                <input type="url" id="profLinkedin" class="form-input" placeholder="https://linkedin.com/in/myprofile">
+              </div>
+            </div>
+          </div>
+
+          <!-- Employer Profile Specific Fields -->
+          <div id="employerProfileSection" style="display: none;">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="profCompanyName">Company Name</label>
+                <input type="text" id="profCompanyName" class="form-input" placeholder="e.g. TechNova Solutions">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="profCompanyWebsite">Company Website</label>
+                <input type="url" id="profCompanyWebsite" class="form-input" placeholder="https://technova.example.com">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="profIndustry">Industry</label>
+                <input type="text" id="profIndustry" class="form-input" placeholder="e.g. Software & Cloud Infrastructure">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="profCompanySize">Company Size</label>
+                <input type="text" id="profCompanySize" class="form-input" placeholder="e.g. 100-250 employees">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="profCompanyDescription">Company Overview</label>
+              <textarea id="profCompanyDescription" class="form-input" rows="4" placeholder="Describe your company culture, mission, and products..."></textarea>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 1rem; margin-top: 1.5rem; border-top: 1px solid var(--border-color); padding-top: 1.25rem;">
+            <button type="button" class="btn btn-secondary" onclick="window.history.back()">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Profile Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
