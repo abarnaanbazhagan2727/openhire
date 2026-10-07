@@ -9,3 +9,6 @@ Thumbs.db
 .idea/
 scratch/
 temp/
+
+backend/data/
+data/
